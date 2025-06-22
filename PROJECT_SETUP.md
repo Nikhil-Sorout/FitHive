@@ -5,7 +5,7 @@ To run this project, you need to connect it to your own Firebase project.
 1.  **Create Firebase Project:** Go to the [Firebase Console](https://console.firebase.google.com/) and create a new project (or use an existing one).
 2.  **Register Android App:**
     *   Within your project, click "Add app" and select the Android icon (</>).
-    *   Follow the instructions, providing your app's package name (e.g., `com.yourname.gymmasterscompose`).
+    *   Follow the instructions, providing your app's package name.
     *   Download the `google-services.json` configuration file.
 3.  **Add Config File:** Place the downloaded `google-services.json` file in your Android project's `app/` directory.
 4.  **Add Firebase SDKs:** Ensure your `app/build.gradle` file includes the necessary Firebase dependencies (BOM recommended) as listed earlier in this README (Auth, Firestore, Storage). Make sure the Google Services Gradle plugin is applied in both the project-level and app-level `build.gradle` files.
