@@ -1,16 +1,16 @@
 {
   "project_info": {
     "project_number": "524903909347",
-    "firebase_url": "https://gym-masters.firebaseio.com",
-    "project_id": "gym-masters",
-    "storage_bucket": "gym-masters.appspot.com"
+    "firebase_url": "",
+    "project_id": "FitHive",
+    "storage_bucket": "FitHive.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:524903909347:android:71e6a3a587c689780f42d6",
         "android_client_info": {
-          "package_name": "com.ganainy.gymmasterscompose"
+          "package_name": "com.ganainy.fithivecompose"
         }
       },
       "oauth_client": [
@@ -21,7 +21,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyChw031FiuUgyjgL0O95cuxwfD_c2aI9Cg"
+          "current_key": ""
         }
       ],
       "services": {
@@ -39,7 +39,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:524903909347:android:d733c049ede8aa9f0f42d6",
         "android_client_info": {
-          "package_name": "ganainy.dev.gymmasters"
+          "package_name": "ganainy.dev.fithive"
         }
       },
       "oauth_client": [
@@ -47,7 +47,7 @@
           "client_id": "524903909347-tmsn1lpv565o65kf2eanmtt1qrjo7bqp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "ganainy.dev.gymmasters",
+            "package_name": "ganainy.dev.fithive",
             "certificate_hash": "5e2b53b373823b35c5f91a8940b40a3e4e1873fd"
           }
         },

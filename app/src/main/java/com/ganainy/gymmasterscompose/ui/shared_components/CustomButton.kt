@@ -39,6 +39,24 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+/**
+ * A customizable button component with modern Material Design styling.
+ * 
+ * This button features:
+ * - Smooth scale animation on press
+ * - Gradient background support
+ * - Optional icon with text
+ * - Disabled state styling
+ * - Rounded corners and shadow effects
+ * 
+ * @param text The button text to display
+ * @param onClick The action to perform when the button is clicked
+ * @param modifier Additional modifier to apply to the button
+ * @param icon Optional icon to display before the text
+ * @param enabled Whether the button is interactive (default: true)
+ * @param backgroundGradient The gradient brush for the button background
+ * @param contentColor The color for text and icon content
+ */
 @Composable
 fun CustomButton(
     text: String,
@@ -54,7 +72,7 @@ fun CustomButton(
     ),
     contentColor: Color = MaterialTheme.colorScheme.onPrimary
 ) {
-    // Animation for button press effect
+    // Animate button scale based on enabled state for visual feedback
     val animatedScale by animateFloatAsState(
         targetValue = if (enabled) 1f else 0.95f,
         animationSpec = tween(durationMillis = 200)
@@ -63,20 +81,26 @@ fun CustomButton(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .height(56.dp) // Matches typical EditText height
+            .height(56.dp) // Standard Material Design button height
             .scale(animatedScale)
             .clip(RoundedCornerShape(12.dp))
             .shadow(
-                elevation = if (enabled) 6.dp else 2.dp,
+                elevation = if (enabled) 6.dp else 2.dp, // Reduced shadow when disabled
                 shape = RoundedCornerShape(12.dp)
             )
             .background(
-                brush = if (enabled) backgroundGradient else Brush.horizontalGradient(
-                    colors = listOf(
-                        MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f),
-                        MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f)
+                brush = if (enabled) {
+                    // Use provided gradient when enabled
+                    backgroundGradient
+                } else {
+                    // Use muted gradient when disabled
+                    Brush.horizontalGradient(
+                        colors = listOf(
+                            MaterialTheme.colorScheme.onSurface.copy(alpha = 0.12f),
+                            MaterialTheme.colorScheme.onSurface.copy(alpha = 0.08f)
+                        )
                     )
-                )
+                }
             )
             .clickable(
                 enabled = enabled,
@@ -88,6 +112,7 @@ fun CustomButton(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(horizontal = 16.dp)
         ) {
+            // Display icon if provided
             if (icon != null) {
                 Icon(
                     imageVector = icon,
@@ -97,6 +122,8 @@ fun CustomButton(
                 )
                 Spacer(modifier = Modifier.width(8.dp))
             }
+            
+            // Display button text
             Text(
                 text = text,
                 style = MaterialTheme.typography.bodyLarge.copy(
@@ -109,9 +136,17 @@ fun CustomButton(
     }
 }
 
+/**
+ * Preview function showcasing different CustomButton variations.
+ * 
+ * This preview demonstrates:
+ * - Enabled buttons with and without icons
+ * - Disabled button state
+ * - Custom gradient styling
+ */
 @Preview(showBackground = true)
 @Composable
-fun CoolButtonPreview() {
+fun CustomButtonPreview() {
     MaterialTheme {
         Column(
             modifier = Modifier
